@@ -14,7 +14,7 @@ TARGET_UPSTREAM = "https://registry-1.docker.io"
 name = "cloudflare-docker-proxy"
 routes = [
     { pattern = "docker.metapod.cc", custom_domain = true },
-    { pattern = "quey.metapod.cc", custom_domain = true },
+    { pattern = "quay.metapod.cc", custom_domain = true },
     { pattern = "gcr.metapod.cc", custom_domain = true },
     { pattern = "k8s-gcr.metapod.cc", custom_domain = true },
     { pattern = "k8s.metapod.cc", custom_domain = true },
