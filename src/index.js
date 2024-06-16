@@ -4,20 +4,16 @@ addEventListener("fetch", (event) => {
 });
 
 const dockerHub = "https://registry-1.docker.io";
+const customDomain = "metapod.cc"
 
-const routes = {
-  // production
-  "docker.libcuda.so": dockerHub,
-  "quay.libcuda.so": "https://quay.io",
-  "gcr.libcuda.so": "https://gcr.io",
-  "k8s-gcr.libcuda.so": "https://k8s.gcr.io",
-  "k8s.libcuda.so": "https://registry.k8s.io",
-  "ghcr.libcuda.so": "https://ghcr.io",
-  "cloudsmith.libcuda.so": "https://docker.cloudsmith.io",
+const routes = {};
 
-  // staging
-  "docker-staging.libcuda.so": dockerHub,
-};
+routes[`docker.${customDomain}`] = dockerHub;
+routes[`quay.${customDomain}`] = "https://quay.io";
+routes[`gcr.${customDomain}`] = "https://gcr.io";
+routes[`k8s-gcr.${customDomain}`] = "https://k8s.gcr.io";
+routes[`k8s.${customDomain}`] = "https://registry.k8s.io";
+routes[`ghcr.${customDomain}`] = "https://ghcr.io";
 
 function routeByHosts(host) {
   if (host in routes) {
